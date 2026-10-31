@@ -10,7 +10,7 @@ const SAMPLE = {
   client: { name: "Maya Reyes", email: "maya@crumbandco.example", business: "Crumb & Co. Bakery" },
   freelancer: { name: "Leo Okafor", paypalEmail: "", skills: "web developer, Next.js, 6 years" },
   brief:
-    "Our neighborhood bakery needs a one-page website: our menu with prices, opening hours, where to find us, and a form so customers can pre-order custom cakes, with orders landing in orders@crumbandco.example. Most of our customers are on their phones.",
+    "Our neighborhood bakery needs a one-page website: our menu with prices, opening hours, where to find us, and a form so customers can pre-order custom cakes. Most of our customers are on their phones.",
   clientLimits: { budgetUsd: 1200, deadlineDays: 21, mustHaves: "Works well on phones; menu shows prices; cake pre-order form" },
   freelancerLimits: { minUsd: 900, minDays: 10, notes: "Prefers 3 milestones and a small first one. Won't do logo design." },
 };
