@@ -1,6 +1,8 @@
 # Handshake: Next.js standalone server + headless Chromium for the review agent.
 FROM mcr.microsoft.com/playwright:v1.64.1-noble AS build
 WORKDIR /app
+# better-sqlite3 compiles from source when no prebuilt matches this Node version.
+RUN apt-get update && apt-get install -y --no-install-recommends python3 make g++ && rm -rf /var/lib/apt/lists/*
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
