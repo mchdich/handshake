@@ -13,7 +13,7 @@ export type PageCheck = {
   horizontalOverflowPx: number;
   headings: string[];
   anchors: { text: string; href: string; targetExists: boolean }[];
-  forms: { fields: { label: string; type: string; required: boolean }[]; submitText: string }[];
+  forms: { action: string; method: string; fields: { label: string; type: string; required: boolean }[]; submitText: string }[];
   smallTapTargets: string[];
   imagesMissingAlt: number;
   consoleErrors: string[];
@@ -60,6 +60,8 @@ const INSPECT_JS = `(() => {
         })
         .slice(0, 30),
       forms: [...document.querySelectorAll("form")].slice(0, 5).map((f) => ({
+        action: f.getAttribute("action") ? f.action : "(none)",
+        method: (f.getAttribute("method") ?? "get").toUpperCase(),
         fields: [...f.querySelectorAll("input, select, textarea")]
           .filter((el) => el.type !== "hidden")
           .map((el) => ({
@@ -169,7 +171,7 @@ export function describeCheck(p: PageCheck) {
     `In-page links:\n  ${p.anchors.map((a) => `"${a.text}" → ${a.href}${a.targetExists ? "" : " (TARGET MISSING)"}`).join("\n  ") || "(none)"}`,
     `Forms:\n  ${
       p.forms
-        .map((f, i) => `form ${i + 1} [submit: ${f.submitText}]: ${f.fields.map((x) => `${x.label} (${x.type}${x.required ? ", required" : ""})`).join("; ")}`)
+        .map((f, i) => `form ${i + 1} [${f.method} ${f.action}; submit: ${f.submitText}]: ${f.fields.map((x) => `${x.label} (${x.type}${x.required ? ", required" : ""})`).join("; ")}`)
         .join("\n  ") || "(none)"
     }`,
     `Tap targets smaller than 44px: ${p.smallTapTargets.length ? p.smallTapTargets.join("; ") : "none"}`,
