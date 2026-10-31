@@ -4,6 +4,8 @@
 
 Built for the PayPal AI Hackathon 2026. Runs entirely on the PayPal sandbox.
 
+**Live demo:** https://handshake-wo0p.onrender.com · **Video (2:20):** https://youtu.be/fZ5iQLpx3fQ
+
 ## How it works
 
 1. **Negotiate.** The client's agent knows the budget ceiling and deadline. The freelancer's agent knows the minimum rate and lead time. They trade structured offers (price, milestones, due days) until one side accepts the other's exact offer. A drafter agent then writes a summary and testable acceptance criteria for each milestone.
