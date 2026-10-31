@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f7f4ee;
+  --card: #fffdf9;
+  --ink: #1b1813;
+  --ink-2: #4a443b;
+  --ink-3: #8a8275;
+  --line: #e4ddd0;
+  --line-2: #d4cbba;
+  --held: #1f4fd8;
+  --held-soft: #e8eefc;
+  --paid: #11734b;
+  --paid-soft: #e3f3ea;
+  --warn: #a5560b;
+  --warn-soft: #fbefdf;
+  --bad: #b3261e;
+  --bad-soft: #fbe6e4;
+  --seal: #c2410c;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-held: var(--held);
+  --color-held-soft: var(--held-soft);
+  --color-paid: var(--paid);
+  --color-paid-soft: var(--paid-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --color-seal: var(--seal);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* subtle paper grain */
+.grain {
+  background-image: radial-gradient(rgba(27, 24, 19, 0.035) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.35s ease-out both;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.typing span {
+  animation: pulse-dot 1.2s infinite;
+}
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .typing span {
+    animation: none;
+  }
+}
+
+/* Assistant answers (markdown) */
+.md > * + * { margin-top: 0.75em; }
+.md ul { list-style: disc; padding-left: 1.25rem; }
+.md ol { list-style: decimal; padding-left: 1.25rem; }
+.md li + li { margin-top: 0.25em; }
+.md strong { font-weight: 600; }
+.md code { font-family: var(--font-geist-mono), monospace; font-size: 0.85em; background: var(--paper); border-radius: 4px; padding: 0.1em 0.35em; }
+.md table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; display: block; overflow-x: auto; }
+.md th { text-align: left; font-weight: 500; color: var(--ink-3); border-bottom: 1px solid var(--line); padding: 0.4em 0.75em 0.4em 0; white-space: nowrap; }
+.md td { border-bottom: 1px solid var(--line); padding: 0.45em 0.75em 0.45em 0; font-variant-numeric: tabular-nums; }
+.md h1, .md h2, .md h3 { font-weight: 600; }

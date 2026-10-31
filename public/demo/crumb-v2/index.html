@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crumb &amp; Co. Bakery · Fresh bread and custom cakes</title>
+<meta name="description" content="Neighborhood bakery on Alder Street. Daily bread, pastries and custom cakes to pre-order.">
+<style>
+  :root { --cream:#fbf6ee; --crust:#8a4b1f; --ink:#2a2118; --soft:#6d5f50; --line:#eadfce; --berry:#b8324b; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin:0; font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; color:var(--ink); background:var(--cream); }
+  img { max-width:100%; display:block; }
+  a { color:var(--crust); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  header { position: sticky; top:0; z-index:10; background: rgba(251,246,238,.94); backdrop-filter: blur(6px); border-bottom:1px solid var(--line); }
+  .bar { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:60px; }
+  .brand { font: 700 20px/1 Georgia, "Times New Roman", serif; color:var(--ink); text-decoration:none; }
+  nav { display:flex; gap:4px; overflow-x:auto; }
+  nav a { display:inline-flex; align-items:center; min-height:44px; padding:0 10px; text-decoration:none; color:var(--ink); font-size:15px; border-radius:999px; white-space:nowrap; }
+  nav a:hover { background: var(--line); }
+  .hero { padding: 48px 0 36px; display:grid; gap:28px; }
+  .hero h1 { font: 700 clamp(34px, 8vw, 60px)/1.02 Georgia, serif; margin:0; letter-spacing:-.01em; }
+  .hero p { color:var(--soft); font-size:18px; max-width: 34em; margin: 14px 0 22px; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 22px; border-radius:999px; background:var(--crust); color:#fff; text-decoration:none; font-weight:600; border:0; font-size:16px; cursor:pointer; }
+  .hero-art { aspect-ratio: 4/3; border-radius: 20px; background:
+     radial-gradient(circle at 30% 35%, #e9b77a 0 18%, transparent 19%),
+     radial-gradient(circle at 62% 55%, #d9925a 0 22%, transparent 23%),
+     radial-gradient(circle at 40% 72%, #f0cf9f 0 14%, transparent 15%),
+     linear-gradient(135deg, #f3e3cc, #e8cfae); }
+  section { padding: 44px 0; border-top: 1px solid var(--line); scroll-margin-top: 64px; }
+  h2 { font: 700 30px/1.1 Georgia, serif; margin: 0 0 18px; }
+  .menu { display:grid; gap: 22px; }
+  .menu h3 { margin: 0 0 8px; font-size: 14px; text-transform: uppercase; letter-spacing: .08em; color: var(--soft); }
+  .menu ul { list-style:none; margin:0; padding:0; }
+  .menu li { display:flex; justify-content:space-between; gap:16px; padding: 10px 0; border-bottom: 1px dashed var(--line); }
+  .menu li span:first-child small { display:block; color: var(--soft); font-size: 14px; }
+  .price { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  table.hours { border-collapse: collapse; width: 100%; max-width: 420px; }
+  .hours td { padding: 9px 0; border-bottom: 1px solid var(--line); }
+  .hours td:last-child { text-align:right; font-variant-numeric: tabular-nums; }
+  .hours tr.closed td:last-child { color: var(--berry); }
+  .visit { display:grid; gap: 20px; }
+  .map { border:0; width:100%; aspect-ratio: 4/3; border-radius: 16px; background: var(--line); }
+  form { display:grid; gap: 14px; max-width: 560px; }
+  label { display:grid; gap: 6px; font-weight: 600; font-size: 15px; }
+  label small { font-weight: 400; color: var(--soft); }
+  input, select, textarea { font: inherit; min-height: 48px; padding: 10px 12px; border:1px solid #d8c9b4; border-radius: 12px; background:#fff; color: var(--ink); width:100%; }
+  textarea { min-height: 110px; }
+  .row { display:grid; gap:14px; }
+  .ok { display:none; padding: 16px; border-radius: 14px; background: #e7f3ea; color: #1f5a33; font-weight: 600; }
+  .ok.show { display:block; }
+  footer { padding: 28px 0 40px; color: var(--soft); font-size: 14px; border-top: 1px solid var(--line); }
+  @media (min-width: 760px) {
+    .hero { grid-template-columns: 1.1fr .9fr; align-items:center; padding: 72px 0 56px; }
+    .menu { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .visit { grid-template-columns: 1fr 1fr; align-items:start; }
+    .row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">Crumb &amp; Co.</a>
+    <nav aria-label="Sections">
+      <a href="#menu">Menu</a>
+      <a href="#hours">Hours</a>
+      <a href="#visit">Location</a>
+      <a href="#order">Pre-order</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Bread worth crossing the street for.</h1>
+      <p>Sourdough, buttery pastries and custom cakes, baked every morning on Alder Street since 2014.</p>
+      <a class="btn" href="#order">Pre-order a cake</a>
+    </div>
+    <div class="hero-art" role="img" aria-label="Illustration of fresh loaves and buns"></div>
+  </div>
+
+  <section id="menu" aria-labelledby="menu-h">
+    <h2 id="menu-h">Menu</h2>
+    <div class="menu">
+      <div>
+        <h3>Bread</h3>
+        <ul>
+          <li><span>Country sourdough<small>Long-fermented, crackly crust</small></span><span class="price">$8.50</span></li>
+          <li><span>Seeded rye<small>Sunflower, flax, caraway</small></span><span class="price">$9.00</span></li>
+          <li><span>Baguette</span><span class="price">$4.00</span></li>
+          <li><span>Brioche loaf</span><span class="price">$10.00</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Pastries</h3>
+        <ul>
+          <li><span>Butter croissant</span><span class="price">$4.25</span></li>
+          <li><span>Pain au chocolat</span><span class="price">$4.75</span></li>
+          <li><span>Cardamom bun</span><span class="price">$5.00</span></li>
+          <li><span>Seasonal fruit danish</span><span class="price">$5.25</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Cakes</h3>
+        <ul>
+          <li><span>Slice of the day</span><span class="price">$6.50</span></li>
+          <li><span>6" celebration cake<small>Serves 8–10</small></span><span class="price">$42.00</span></li>
+          <li><span>8" celebration cake<small>Serves 14–18</small></span><span class="price">$58.00</span></li>
+          <li><span>Custom message &amp; decoration</span><span class="price">+$8.00</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="hours" aria-labelledby="hours-h">
+    <h2 id="hours-h">Opening hours</h2>
+    <table class="hours">
+      <tbody>
+        <tr><td>Monday</td><td>7:00 am – 3:00 pm</td></tr>
+        <tr><td>Tuesday</td><td>7:00 am – 3:00 pm</td></tr>
+        <tr><td>Wednesday</td><td>7:00 am – 3:00 pm</td></tr>
+        <tr><td>Thursday</td><td>7:00 am – 6:00 pm</td></tr>
+        <tr><td>Friday</td><td>7:00 am – 6:00 pm</td></tr>
+        <tr><td>Saturday</td><td>8:00 am – 4:00 pm</td></tr>
+        <tr class="closed"><td>Sunday</td><td>Closed</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="visit" aria-labelledby="visit-h">
+    <h2 id="visit-h">Find us</h2>
+    <div class="visit">
+      <div>
+        <p><strong>Crumb &amp; Co. Bakery</strong><br>214 Alder Street<br>Portland, OR 97205</p>
+        <p>Street parking on Alder; bike racks out front. We're two blocks from the Morrison St. bus stop.</p>
+        <p><a class="btn" href="https://www.openstreetmap.org/search?query=214%20Alder%20Street%20Portland%20OR" target="_blank" rel="noopener">Open in maps</a></p>
+        <p>Call us: <a href="tel:+15035550142">(503) 555-0142</a></p>
+      </div>
+      <iframe class="map" title="Map showing 214 Alder Street, Portland" loading="lazy"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-122.6830%2C45.5180%2C-122.6750%2C45.5230&amp;layer=mapnik&amp;marker=45.5205%2C-122.6790"></iframe>
+    </div>
+  </section>
+
+  <section id="order" aria-labelledby="order-h">
+    <h2 id="order-h">Pre-order a custom cake</h2>
+    <p style="color:var(--soft);max-width:34em">Order at least 48 hours ahead. We'll confirm by phone or email within one business day.</p>
+    <form id="cake" novalidate>
+      <div class="row">
+        <label>Your name <input name="name" autocomplete="name" required></label>
+        <label>Email <input name="email" type="email" autocomplete="email" required></label>
+      </div>
+      <label>Phone <small>(optional, if you'd rather we call)</small> <input name="phone" type="tel" autocomplete="tel"></label>
+      <div class="row">
+        <label>Pickup date <input name="date" type="date" required></label>
+        <label>Size
+          <select name="size" required>
+            <option value="">Choose a size</option>
+            <option>6" (serves 8–10)</option>
+            <option>8" (serves 14–18)</option>
+          </select>
+        </label>
+      </div>
+      <label>Flavor
+        <select name="flavor" required>
+          <option value="">Choose a flavor</option>
+          <option>Vanilla bean</option><option>Dark chocolate</option><option>Lemon &amp; raspberry</option><option>Carrot &amp; walnut</option>
+        </select>
+      </label>
+      <label>Message on the cake <small>(optional)</small> <input name="message" maxlength="40"></label>
+      <label>Anything else? <small>(optional)</small> <textarea name="notes"></textarea></label>
+      <p id="err" role="alert" style="color:var(--berry);margin:0;font-weight:600"></p>
+      <button class="btn" type="submit">Send pre-order</button>
+      <div class="ok" id="ok" role="status">Thanks! Your cake request is in. We'll confirm within one business day.</div>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© Crumb &amp; Co. Bakery · 214 Alder Street, Portland · (503) 555-0142</div>
+</footer>
+
+<script>
+  const f = document.getElementById("cake");
+  f.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const missing = [...f.querySelectorAll("[required]")].filter((el) => !el.value.trim());
+    f.querySelectorAll("[required]").forEach((el) => el.setAttribute("aria-invalid", missing.includes(el) ? "true" : "false"));
+    document.getElementById("err").textContent = missing.length ? "Please fill in: " + missing.map((el) => el.closest("label").firstChild.textContent.trim()).join(", ") + "." : "";
+    if (missing.length) { missing[0].focus(); return; }
+    document.getElementById("ok").classList.add("show");
+    f.querySelector("button").disabled = true;
+  });
+</script>
+</body>
+</html>
