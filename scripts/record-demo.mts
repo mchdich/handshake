@@ -9,8 +9,9 @@ const base = process.argv[2] ?? "http://localhost:3100";
 const out = process.argv[3] ?? "demo";
 fs.mkdirSync(out, { recursive: true });
 
-const W = 1600;
-const H = 900;
+const W = 1280;
+const H = 720;
+const SCALE = 1.5; // 1920x1080 output
 const t0 = Date.now();
 const marks: { at: number; label: string }[] = [];
 const mark = (label: string) => {
@@ -92,7 +93,8 @@ async function waitFor(page: Page, fn: () => Promise<boolean>, timeoutMs = 600_0
 const browser = await chromium.launch({ args: ["--no-sandbox"] });
 const ctx = await browser.newContext({
   viewport: { width: W, height: H },
-  recordVideo: { dir: out, size: { width: W, height: H } },
+  deviceScaleFactor: SCALE,
+  recordVideo: { dir: out, size: { width: W * SCALE, height: H * SCALE } },
 });
 const page = await ctx.newPage();
 page.on("load", () => ensureCursor(page));
