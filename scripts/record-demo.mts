@@ -179,7 +179,7 @@ try {
   mark("deliver-v2");
   const url2 = m2.getByRole("textbox", { name: /https/ });
   await type(page, url2, `${base}/demo/crumb-v2`);
-  await type(page, m2.getByRole("textbox", { name: /Note for the reviewer/ }), "Fixed the prices, the Location link and the phone layout. Pre-orders post to the bakery order endpoint, /api/demo/preorder.");
+  await type(page, m2.getByRole("textbox", { name: /Note for the reviewer/ }), "Fixed the prices, the Location link and the phone layout. The pre-order form posts to the bakery order endpoint (/api/demo/preorder), which emails each order to orders@crumbandco.example.");
   await click(page, m2.getByRole("button", { name: "Submit for review" }));
   await waitFor(page, async () => (await m2.getByText("Verified and paid").count()) > 0, 300_000);
   mark("v2-paid");
