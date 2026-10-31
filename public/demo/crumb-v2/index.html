@@ -147,7 +147,7 @@
   <section id="order" aria-labelledby="order-h">
     <h2 id="order-h">Pre-order a custom cake</h2>
     <p style="color:var(--soft);max-width:34em">Order at least 48 hours ahead. We'll confirm by phone or email within one business day.</p>
-    <form id="cake" novalidate>
+    <form id="cake" action="/api/demo/preorder" method="POST" novalidate>
       <div class="row">
         <label>Your name <input name="name" autocomplete="name" required></label>
         <label>Email <input name="email" type="email" autocomplete="email" required></label>
@@ -171,6 +171,8 @@
       </label>
       <label>Message on the cake <small>(optional)</small> <input name="message" maxlength="40"></label>
       <label>Anything else? <small>(optional)</small> <textarea name="notes"></textarea></label>
+      <input type="hidden" name="_subject" value="New cake pre-order">
+      <p style="color:var(--soft);font-size:14px;margin:0">Orders go straight to our kitchen's order system.</p>
       <p id="err" role="alert" style="color:var(--berry);margin:0;font-weight:600"></p>
       <button class="btn" type="submit">Send pre-order</button>
       <div class="ok" id="ok" role="status">Thanks! Your cake request is in. We'll confirm within one business day.</div>
@@ -190,8 +192,10 @@
     f.querySelectorAll("[required]").forEach((el) => el.setAttribute("aria-invalid", missing.includes(el) ? "true" : "false"));
     document.getElementById("err").textContent = missing.length ? "Please fill in: " + missing.map((el) => el.closest("label").firstChild.textContent.trim()).join(", ") + "." : "";
     if (missing.length) { missing[0].focus(); return; }
-    document.getElementById("ok").classList.add("show");
     f.querySelector("button").disabled = true;
+    fetch(f.action, { method: "POST", body: new FormData(f), headers: { Accept: "application/json" } })
+      .catch(() => {})
+      .finally(() => document.getElementById("ok").classList.add("show"));
   });
 </script>
 </body>
